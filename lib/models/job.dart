@@ -43,4 +43,20 @@ class Job {
   );
 }
 
-Job jobFromJson(String str) => Job.fromJson(json.decode(str));
+class JobList {
+  final List<Job> jobs;
+
+  JobList({@required this.jobs});
+
+  factory JobList.fromJson(List<dynamic> json) {
+    return JobList(jobs: json.map((job) {
+      return Job.fromJson(job as Map<String, dynamic>);
+    }).toList());
+  }
+}
+
+Job jobFromJson(String responseBody) => Job.fromJson(json.decode(responseBody));
+
+JobList jobListFromJson(String responseBody) {
+  return JobList.fromJson(json.decode(responseBody));
+}
