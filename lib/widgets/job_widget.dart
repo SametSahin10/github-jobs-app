@@ -19,7 +19,7 @@ class JobWidget extends StatelessWidget {
         children: [
           Text(title),
           Text(company),
-          Image.network(companyLogo);
+          Image.network(companyLogo),
         ],
       ),
     );
